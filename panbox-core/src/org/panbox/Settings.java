@@ -335,6 +335,10 @@ public class Settings {
 		return panboxConfDir + File.separator + "devices.db";
 	}
 
+	public String getRecoveryDBPath() {
+		return panboxConfDir + File.separator + "recovery.db";
+	}
+
 	public String getDeviceName() {
 		return deviceName;
 	}

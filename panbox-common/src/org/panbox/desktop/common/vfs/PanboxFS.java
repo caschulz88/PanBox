@@ -34,12 +34,15 @@ import org.apache.log4j.Logger;
 import org.panbox.core.exception.ObfuscationException;
 import org.panbox.core.vfs.backend.VirtualFile;
 import org.panbox.desktop.common.gui.PanboxDesktopGUIConstants;
+import org.panbox.desktop.common.recovery.RecoveryManagerImpl;
+import org.panbox.desktop.common.recovery.RecoveryManagerImpl.RecoveryException;
 import org.panbox.desktop.common.vfs.backend.IRootVolume;
 import org.panbox.desktop.common.vfs.backend.VirtualRootVolume;
 import org.panbox.desktop.common.vfs.backend.exceptions.SecretKeyNotFoundException;
 
 /**
  * @author palige
+ * @author Clemens A. Schulz <c.schulz@sirrix.com>
  * 
  *         Abstract class with platform independent code for the VFS. Actual VFS
  *         API calls are to be implemented by platform-specific subclasses.
@@ -255,6 +258,13 @@ public abstract class PanboxFS {
 					// TODO better handling in case of filenames which could not
 					// be deobfuscated. E.g. lost+found folder, or something
 					// similar
+					try {
+						// Add file to the RecoveryManager. We can run some more tasks on it later on!
+						RecoveryManagerImpl.getInstance().markMissingIVForFile(backing.getPath());
+					} catch (RecoveryException e1) {
+						logger.error("PanboxFS : Failed to initialize RecoveryManager. Won't add file to it.");
+					}
+					
 					throw new FileNotFoundException("Deobfuscation error: "
 							+ e.getMessage());
 				}
