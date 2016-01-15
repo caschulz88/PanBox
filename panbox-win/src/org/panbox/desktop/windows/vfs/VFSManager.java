@@ -31,14 +31,20 @@ import java.lang.reflect.InvocationTargetException;
 
 import javax.naming.ConfigurationException;
 
+import org.apache.log4j.Logger;
 import org.panbox.Settings;
 import org.panbox.desktop.common.vfs.PanboxFS;
 
+import eldos.cbfs.ECBFSError;
+
 public class VFSManager {
+
+	private static final Logger logger = Logger
+			.getLogger("org.panbox");
 
 	private static VFSManager instance;
 
-	private PanboxFSWindows vfs;
+	private PanboxCBFSWindows vfs;
 
 	private final String mountpoint;
 
@@ -61,13 +67,18 @@ public class VFSManager {
 	}
 
 	public synchronized void startVFS() {
-		vfs = new PanboxFSWindows(new DokanUserFS());
-
-		File mountFile = new File(mountpoint);
-		
-		if( vfs.mount(mountFile, false, null) )
-		{
-			WindowsOSIntegration.registerVFS(mountpoint.substring(0, 1));
+		try {
+			vfs = new PanboxCBFSWindows( new CBFSUserFS() );
+	
+			File mountFile = new File(mountpoint);
+			
+			if( vfs.mount(mountFile, false, null) )
+			{
+				WindowsOSIntegration.registerVFS(mountpoint.substring(0, 1));
+			}
+		} catch( ECBFSError ex ) {
+			vfs = null;
+			logger.error( "Failed to create/start VFS: ", ex );
 		}
 	}
 

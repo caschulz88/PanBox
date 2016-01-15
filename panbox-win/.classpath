@@ -6,5 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/panbox-common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panbox-core"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/EldoS/Callback File System/Java/eldos.cbfs.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
