@@ -42,7 +42,7 @@ public class CBFSUserFS implements PanboxFSAdapter, ICbFsStorageEvents, ICbFsVol
 		int modulesToInstall = CallbackFileSystem.CBFS_MODULE_MOUNT_NOTIFIER_DLL | CallbackFileSystem.CBFS_MODULE_NET_REDIRECTOR_DLL;
 		boolRef rebootNeeded = new boolRef();
 		try {
-			String CabFileName = "C:\\Program Files (x86)\\EldoS\\Callback File System\\Drivers\\cbfs.cab";
+			String CabFileName = "C:\\Program Files\\EldoS\\Callback File System\\Drivers\\cbfs.cab";
 			cbfs.install(CabFileName, PRODUCT_NAME, "C:\\Windows\\System32", supportPnP, false, modulesToInstall, rebootNeeded);
 		} catch (ECBFSError e) {
 			e.printStackTrace();

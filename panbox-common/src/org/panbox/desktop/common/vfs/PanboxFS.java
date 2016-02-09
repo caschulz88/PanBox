@@ -54,8 +54,8 @@ public abstract class PanboxFS {
 
 	public final IRootVolume backingStorage;
 
-	public PanboxFS(PanboxFSAdapter backend) {
-		this.vfsAdapter = backend;
+	public PanboxFS(PanboxFSAdapter thisFS) {
+		this.vfsAdapter = thisFS;
 		this.backingStorage = VirtualRootVolume.getInstance();
 	}
 
