@@ -1,10 +1,10 @@
 PanBox OSE Changelog
 ====================
 
-Next Minor-Version
-------------------
+Version 1.1.3
+-------------
 
-To be released
+Released on 10th February 2016 for Windows and Linux
 
 Features:
 
@@ -12,6 +12,7 @@ Features:
 
 Bugfixes:
 
+* Fixed bug in network/bluetooth based pairing of a new slave device were encryption and signature certificates were interchanged in Desktop version
 * Fixed missing German translation for remove device/contact button on share list entry
 * Fixed remove device button on device management, which was clickable even if it was disabled
 

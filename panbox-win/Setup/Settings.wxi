@@ -3,13 +3,13 @@
   <!-- When creating a new release, change the version number below (changing the build number only is not sufficient). -->
   <?define MajorVersion="1" ?>
   <?define MinorVersion="1" ?>
-  <?define PatchLevel="2" ?>
+  <?define PatchLevel="3" ?>
   <?define BuildNumber="0" ?>
 
   <!-- When creating a new release, only change the ProductId below (we use major updates only). -->
   <!-- Note: For the lifetime of a product, through all of its incarnations, the UpgradeCode should never change. -->
   <?define UpgradeCode="F10554B5-7B3D-4642-978E-5D43DADCF226"?>
-  <?define ProductId="23FA84EB-05F0-4A2A-ADDB-9712F56026CF"?>
+  <?define ProductId="FED67E97-290A-46D0-A542-B4E259E363CA"?>
 
   <!-- It should normally not be necessary to change something below this line -->
   <?define Product="Panbox" ?>

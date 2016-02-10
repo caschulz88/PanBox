@@ -28,6 +28,6 @@ package org.panbox.desktop.common;
 
 public class PanboxDesktopConstants {
 
-	public static final byte[] PANBOX_VERSION = new byte[] { '1', '.', '1', '.', '2' };
+	public static final byte[] PANBOX_VERSION = new byte[] { '1', '.', '1', '.', '3' };
 	
 }
